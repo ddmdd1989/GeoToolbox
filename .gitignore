@@ -28,8 +28,7 @@
 *.app
 
 # Input-output files
-!/input/
-input/*.*
+#input/*.*
 #output/*.*
 GeoTool.m
 runGTb..sh

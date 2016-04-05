@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "start script for matlab"
+pth2mtlb=$(which matlab)
+#cd /usr/local/MATLAB/R2013a/bin/matlab
+#gnome-terminal cd /home/mitsos/Apps/MATLAB/R2011a/bin/ -x ./matlab -nodisplay -nodesktop -r "run /home/mitsos/Apps/MATLAB/matlab_apps/triangle_gr/Toolbox_test/alg_Frank.m;quit;"
+
+gnome-terminal -x $pth2mtlb -nodisplay -nodesktop -r "run pth2GTb/GeoTool.m;quit;"
+
+# $pth2mtlb -nodisplay -nodesktop -r "run pth2GTb/GeoTool.m;quit;"
+
+echo "MATLAB run in new terminal"|cowsay -f tux
+#./home/mitsos/Map_project/maps_gmt/cg_triangle/central_trngl
+#echo "gmt extracted"
