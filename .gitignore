@@ -28,8 +28,8 @@
 *.app
 
 # Input-output files
-input/*.*
-output/*.*
+#input/*.*
+#output/*.*
 GeoTool.m
 runGTb..sh
 *.eps
