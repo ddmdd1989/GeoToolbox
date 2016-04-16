@@ -1,0 +1,134 @@
+function GeoTool
+%==========================================================================
+%  
+%   |===========================================|
+%   |**     DIONYSOS SATELLITE OBSERVATORY    **|
+%   |**        HIGHER GEODESY LABORATORY      **|
+%   |** National Tecnical University of Athens**|
+%   |===========================================|
+%  
+%   filename              : GeoTool.m
+                           NAME='GeoTool'
+%   version               : v-1.0
+                           VERSION='v-1.0'
+                           RELEASE='beta'
+%   created               : DEC-2014
+%   usage                 :
+%   exit code(s)          : 0 -> success
+%                         : 1 -> error
+%   discription           : 
+%   uses                  : 
+%   notes                 :
+%   TODO                  :
+%   detailed update list  : 
+                          LAST_UPDATE='JAN-2016'
+%   contact               : Demitris Anastasiou (danast@mail.ntua.gr)
+%                           Xanthos Papanikolaou (xanthos@mail.ntua.gr)                          
+%==========================================================================
+%GeoTool
+%call all the functions...
+clc
+%  clear all
+format compact
+format long
+%coder.extrinsic('clc')
+%coder.extrinsic('clear all')
+%coder.extrinsic('format compact')
+%coder.extrinsic('format long')
+%%folders
+global input_dir
+global output_dir
+global param_file
+global outname
+global outshp % output shpafiles 1. plot 0.no
+outshp=0;
+%  input_dir=('/home/mitsos/Apps/MATLAB/matlab_apps/GeoToolbox/input/');
+%  output_dir=('/home/mitsos/Apps/MATLAB/matlab_apps/GeoToolbox/output/');
+
+input_dir=('pth2inputdir');
+output_dir=('pth2outputdir');
+
+disp('   |===========================================|')
+disp('   |**     DIONYSOS SATELLITE OBSERVATORY    **|')
+disp('   |**        HIGHER GEODESY LABORATORY      **|')
+disp('   |** National Tecnical University of Athens**|')
+disp('   |===========================================|')
+fprintf('   |   Program name : %-24s |\n',NAME);
+fprintf('   |        Version : %-24s |\n',VERSION);
+fprintf('   |        Release : %-24s |\n',RELEASE);
+fprintf('   |    Last Update : %-24s |\n',LAST_UPDATE);
+disp('   |===========================================|')
+
+
+disp('......GeoToolBox in Matlab.... START ....    ')
+fprintf('   DSO - HGL        %s\n',date)   
+disp('=================================')
+outname=input('Give the region of your work : ','s');
+
+cirname=sprintf('%s_param.txt',outname);
+param_file=fopen(fullfile(output_dir,cirname),'w');
+fprintf(param_file,'Dionysos Satellite Observatory               %s\n',date);
+fprintf(param_file,'Higher Geodesy Laboratory\n');
+fprintf(param_file,'--------------------------------------------------------\n');
+
+
+fprintf(param_file,'Region of the Study : %s\n',outname);
+
+work=-1;
+while work~=0 
+ clc
+ cirname=sprintf('%s_param.txt',outname);
+ param_file=fopen(fullfile(output_dir,cirname),'a');
+ fprintf('    Region of the Study : %s\n',outname)
+    disp('   ======================================================')
+    disp('   |   1 : Velocities                                   |')
+    disp('   |   2 : Allignment                                   |')
+    disp('   |   3   1D strain rate (baselines)                   |')
+    disp('   |   4 : StrainTensor                                 |')
+    disp('   |   5 : GridData                                     |')
+    disp('   |   6 : (NOTUSED)Prjection trans                     |')
+    disp('   |   7 : (NOTUSED)ITRF transformations                |')
+    disp('   |   8 : (NOTUSED)Estimation of Euler Pole(Lat,Lon)   |')
+    disp('   |  ------------------------                          |')
+    disp('   |  10 : Plot scripts                                 |') 
+    disp('   |   0 : EXIT                                         |')
+    disp('   |  ----------------TEST FUNCTIONS                    |')
+    disp('   |  51 : StrainTensor02                               |') 
+    disp('   ======================================================')
+    work=input('...select your work : ');
+    switch work
+        case 1
+            velocities
+        case 2
+            alingment
+        case 3
+            blstrain
+        case 4
+            StrainTensor
+        case 5
+            GridData
+        case 6
+            disp('********* will be updated **********') 
+            %geodetic2TM
+        case 7
+            disp('not maintain, visit epn Transformation tool')
+%            ITRFtrans
+        case 8
+	    disp('not accessable yet')
+%            EulerPole
+        case 10
+	    disp('will be updated')
+	case 51
+	    StrainTensor02
+    end
+end
+fprintf(param_file,'--------------------------------------------------------\n');
+fclose all;
+clc
+disp('   GeoToolBox in Matlab    ')
+fprintf('   DSO - HGL        %s\n',date)   
+disp('   ===================================================')
+disp('   Finished GeoToolBox in Matlab')
+fprintf('   Output Dir : %s\n',output_dir)
+disp('   ===================================================')
+clear all;
