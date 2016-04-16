@@ -84,11 +84,12 @@ Then you can follow the instruction displayed in the next screens.
 - <Az>dirvel.txt: (txt format)
 
 *strain tensors*
-<run> is a 3digit integer code from the program to each tensor
 
-- <*><run>.out : parameter file for starain tensor (txt format)
-- <*><run>.reg : region files... (gmt format)
-- <*><run>.sta : station files... 9gmt format)
+<_run_> is a 3digit integer code from the program to each tensor
+
+- <*><_run_>.out : parameter file for starain tensor (txt format)
+- <*><_run_>.reg : region files... (gmt format)
+- <*><_run_>.sta : station files... 9gmt format)
 - <*>.comp : gmt format to plot compression
 - <*>.ext  : gmt format to plot extension
 - <*>.ell  : gmt format to plot ellipsis tensor
