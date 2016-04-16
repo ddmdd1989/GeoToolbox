@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Geotoolbox by demanasta</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Geotoolbox</h1>
+        <p class="header">Matlab subToolbox for Geodesy and geodynamics</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/demanasta/GeoToolbox/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/demanasta/GeoToolbox/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/demanasta/GeoToolbox">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/demanasta">demanasta</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="geotoolbox" class="anchor" href="#geotoolbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GeoToolbox</h1>
+
+<p>Matlab subToolbox for Geodesy and geodynamics</p>
+
+<h1>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h1>
+
+<p>This repository includes bash script to call MATLAB functions for geodynamic applications.
+MATLAB functions:</p>
+
+<ul>
+<li>Calculate velocity field of surfaces.</li>
+<li>Create profile of velocity field</li>
+<li>Calculate strain tensor parameters (algorithm after Veis et al. (1992))</li>
+<li>Calculate grid data for strain tensors</li>
+</ul>
+
+<p><strong>Structure</strong></p>
+
+<ul>
+<li>functions: all matlab source placed here</li>
+<li>gmt_src: gmt script to plot your results</li>
+<li>input: input files</li>
+<li>output: output files</li>
+<li>install.sh: installation bash script</li>
+<li>clear.sh: clear installation</li>
+</ul>
+
+<p><strong>INSTALLATION</strong></p>
+
+<p>run $ ./install.sh </p>
+
+<p>MATLAB must have already installed in your machine</p>
+
+<p>After a succesfull installation two scripts must be in your directory:</p>
+
+<ul>
+<li>GeoTool.m: Main matlab script</li>
+<li>runGTb.sh: bash script call GeoTool.m</li>
+</ul>
+
+<h2>
+<a id="run-geotoolbox" class="anchor" href="#run-geotoolbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>run GeoToolbox</strong>
+</h2>
+
+<p><strong>INPUT FILES</strong></p>
+
+<p>input file for velocities, use mm for velocities and uncertenties
+also use comma(,) as delimiter</p>
+
+<pre><code>code, lat, lon, alt, vN, svN, vE, svE, vU, svU
+</code></pre>
+
+<p><strong>RUN GeoTool</strong></p>
+
+<p>Run main Script</p>
+
+<pre><code>$ ./runGTb.sh
+</code></pre>
+
+<p>GeoTool will open in a new commant line.</p>
+
+<p>It will ask you to select your region... all output files will start with this string.</p>
+
+<pre><code>Give the region of your work : &lt;test&gt;
+</code></pre>
+
+<p>Second screen will ask for the function you would like to use</p>
+
+<pre><code>    Region of the Study : test
+   ======================================================
+   |   1 : Velocities                                   |
+   |   2 : Allignment                                   |
+   |   3   1D strain rate (baselines)                   |
+   |   4 : StrainTensor                                 |
+   |   5 : GridData                                     |
+   |  ------------------------                          |
+   |  10 : Plot scripts                                 |
+   |   0 : EXIT                                         |
+   ======================================================
+...select your work : 
+</code></pre>
+
+<p>Then you can follow the instruction displayed in the next screens.</p>
+
+<p><strong>OUTPUT FILES</strong></p>
+
+<ul>
+<li>test_param.txt :  all GeoTool variables will displayed here
+<em>Velocities</em>
+</li>
+<li>&lt;*&gt;.vel : velocity files... (gmt format)</li>
+<li>&lt;*&gt;.sta : station files... (gmt format)</li>
+</ul>
+
+<p><em>Alignment</em></p>
+
+<ul>
+<li>&lt;*&gt;_tranv.vel : predicular component of profiled velocity (gmt format)</li>
+<li>&lt;*&gt;_along.vel : aligned component of profiled velocity (gmt format)</li>
+<li>dirvel.txt: (txt format)</li>
+<li>dirvel.txt: (txt format)</li>
+</ul>
+
+<p><em>strain tensors</em></p>
+
+<p>&lt;<em>run</em>&gt; is a 3digit integer code from the program to each tensor</p>
+
+<ul>
+<li>&lt;*&gt;&lt;<em>run</em>&gt;.out : parameter file for starain tensor (txt format)</li>
+<li>&lt;*&gt;&lt;<em>run</em>&gt;.reg : region files... (gmt format)</li>
+<li>&lt;*&gt;&lt;<em>run</em>&gt;.sta : station files... 9gmt format)</li>
+<li>&lt;*&gt;.comp : gmt format to plot compression</li>
+<li>&lt;*&gt;.ext  : gmt format to plot extension</li>
+<li>&lt;*&gt;.ell  : gmt format to plot ellipsis tensor</li>
+<li>&lt;*&gt;.axx  : gmt format to plot axes of ellipses</li>
+<li>&lt;*&gt;.cir  : gmt format to plot 1-unit circle</li>
+<li>&lt;*&gt;par.str : all plotted parameters of strain tensor. This file used with gmt script!!</li>
+</ul>
+
+<p><strong>Plot your results</strong></p>
+
+<p>Yout can use gmt_src/GeoTool.sh script to plot your results but this script is under development so be careful!!</p>
+
+<hr>
+
+<h1>
+<a id="updates" class="anchor" href="#updates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Updates</h1>
+
+<ul>
+<li>21 Feb 2016: First release of GeoToolbox</li>
+</ul>
+
+<h1>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h1>
+
+<p>Veis, G., Billiris, H., Nakos, B., and Paradissis, D. (1992). Tectonic strain in greece from geodetic measurements. C.R.Acad.Sci.Athens, 67:129--166.</p>
+
+<p>Wessel, P., W. H. F. Smith, R. Scharroo, J. F. Luis, and F. Wobbe (2013) Generic Mapping Tools: Improved version released, EOS Trans. AGU, 94, 409-410.</p>
+
+<h1>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h1>
+
+<p>Demitris Anastasiou, <a href="mailto:danast@mail.ntua.gr">danast@mail.ntua.gr</a></p>
+
+<p>Xanthos Papanikolaou, <a href="mailto:xanthos@mail.ntua.gr">xanthos@mail.ntua.gr</a></p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
