@@ -159,7 +159,7 @@ switch p
 		for q=1:k
 		svel=sqrt(veln(q)^2 + vele(q)^2);
 		sdsvel=sqrt(errn(q)^2 + erre(q)^2);
-			fprintf(outvel,'%4s %12.7f %12.7f %9.3f %8.2f %6.2f %8.2f %6.2f %8.2f %6.2f\n',code{q},lat(q),long(q),alt(q),veln(q),errn(q),vele(q),erre(q),velu(q),erru(q),svel,sdsvel);
+			fprintf(outvel,'%4s %12.7f %12.7f %9.3f %8.2f %6.2f %8.2f %6.2f %8.2f %6.2f %8.2f %6.2f\n',code{q},lat(q),long(q),alt(q),veln(q),errn(q),vele(q),erre(q),velu(q),erru(q),svel,sdsvel);
 %  			fprintf(outvel,'%s,',code{q});
 %  			fprintf(outvel,'%.5f,',lat(q));
 %  			fprintf(outvel,'%.5f,',long(q));

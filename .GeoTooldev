@@ -86,8 +86,14 @@ while work~=0
     disp('   |   3   1D strain rate (baselines)                   |')
     disp('   |   4 : StrainTensor                                 |')
     disp('   |   5 : GridData                                     |')
+    disp('   |   6 : (NOTUSED)Prjection trans                     |')
+    disp('   |   7 : (NOTUSED)ITRF transformations                |')
+    disp('   |   8 : (NOTUSED)Estimation of Euler Pole(Lat,Lon)   |')
     disp('   |  ------------------------                          |')
+    disp('   |  10 : Plot scripts                                 |') 
     disp('   |   0 : EXIT                                         |')
+    disp('   |  ----------------TEST FUNCTIONS                    |')
+    disp('   |  51 : StrainTensor02                               |') 
     disp('   ======================================================')
     work=input('...select your work : ');
     switch work

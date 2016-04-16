@@ -50,7 +50,7 @@ GeoTool will open in a new commant line.
 
 It will ask you to select your region... all output files will start with this string.
 ```
-Give the region of your work : 
+Give the region of your work : <test>
 ```
 
 Second screen will ask for the function you would like to use
@@ -72,8 +72,33 @@ Then you can follow the instruction displayed in the next screens.
 
 **OUTPUT FILES**
 
-many files!! will be udated!
+- test_param.txt :  all GeoTool variables will displayed here
+*Velocities*
+- <*>.vel : velocity files... (gmt format)
+- <*>.sta : station files... (gmt format)
 
+*Alignment*
+- <*>_tranv.vel : predicular component of profiled velocity (gmt format)
+- <*>_along.vel : aligned component of profiled velocity (gmt format)
+- <Az>dirvel.txt: (txt format)
+- <Az>dirvel.txt: (txt format)
+
+*strain tensors*
+<run> is a 3digit integer code from the program to each tensor
+
+- <*><run>.out : parameter file for starain tensor (txt format)
+- <*><run>.reg : region files... (gmt format)
+- <*><run>.sta : station files... 9gmt format)
+- <*>.comp : gmt format to plot compression
+- <*>.ext  : gmt format to plot extension
+- <*>.ell  : gmt format to plot ellipsis tensor
+- <*>.axx  : gmt format to plot axes of ellipses
+- <*>.cir  : gmt format to plot 1-unit circle
+- <*>par.str : all plotted parameters of strain tensor. This file used with gmt script!!
+
+**Plot your results**
+
+Yout can use gmt_src/GeoTool.sh script to plot your results but this script is under development so be careful!!
 
 ----------
 
