@@ -1,6 +1,10 @@
 # GeoToolbox
 Matlab subToolbox for Geodesy and geodynamics
 
+<!-- [![Build Status](https://api.travis-ci.org/kks32/phd-thesis-template.svg)](https://travis-ci.org/kks32/phd-thesis-template) -->
+[![License GPL-3.0](http://img.shields.io/badge/license-GPL-brightgreen.svg)](LICENSE)
+[![Version](http://img.shields.io/badge/version-1.0-brightgreen.svg)](https://github.com/demanasta/GeoToolbox/releases/latest)
+
 # Introduction
 This repository includes bash script to call MATLAB functions for geodynamic applications.
 MATLAB functions:
