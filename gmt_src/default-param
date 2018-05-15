@@ -79,11 +79,11 @@ bathcpt=bath_man.cpt
 
 # //////////////////////////////////////////////////////////////////////////////
 # Set default REGION for ONLY PATRA
-west=20.2
-east=22.7
-south=37.5
-north=39.02
-projscale=1250000
+west=19.92
+east=26
+south=36
+north=40
+projscale=3000000
 frame=1
 # gmt	gmtset PS_MEDIA 26cx22c
 scale="-Lf22.4/37.6/36:24/30+l+jr"
@@ -101,8 +101,8 @@ VSC=0.05
 
 STRSC=50
 ROTSC=1
-strsclon=22.40
-strsclat=37.74
+strsclon=20.4
+strsclat=36.3
 
 # #//////////////////// me TRIGONA!!!!!
 # Set default REGION for ONLY PATRA
